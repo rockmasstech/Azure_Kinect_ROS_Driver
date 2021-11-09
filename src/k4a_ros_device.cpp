@@ -690,8 +690,6 @@ k4a_result_t K4AROSDevice::fillColorPointCloud(const k4a::image& pointcloud_imag
   sensor_msgs::PointCloud2Iterator<uint8_t> iter_g(*point_cloud, "g");
   sensor_msgs::PointCloud2Iterator<uint8_t> iter_b(*point_cloud, "b");
 
-  pcd_modifier.resize(point_count);
-
   const int16_t* point_cloud_buffer = reinterpret_cast<const int16_t*>(pointcloud_image.get_buffer());
   const uint8_t* color_buffer = color_image.get_buffer();
 
@@ -737,8 +735,6 @@ k4a_result_t K4AROSDevice::fillPointCloud(const k4a::image& pointcloud_image, se
   sensor_msgs::PointCloud2Iterator<float> iter_x(*point_cloud, "x");
   sensor_msgs::PointCloud2Iterator<float> iter_y(*point_cloud, "y");
   sensor_msgs::PointCloud2Iterator<float> iter_z(*point_cloud, "z");
-
-  pcd_modifier.resize(point_count);
 
   const int16_t* point_cloud_buffer = reinterpret_cast<const int16_t*>(pointcloud_image.get_buffer());
 
